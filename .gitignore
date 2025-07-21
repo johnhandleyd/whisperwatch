@@ -1,0 +1,10 @@
+.venv
+*.zip
+*.ipynb
+.env
+data/old/*
+.vscode
+__pycache__
+logs/*
+notebooks/*
+reports/20*

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reddit Narrative Report</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        .cluster { margin-bottom: 2em; border-bottom: 1px solid #ddd; padding-bottom: 1em;}
+        .flag { color: red; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <h1>Reddit Narrative Intelligence Report</h1>
+    <p><b>Total clusters:</b> {{ clusters|length }}</p>
+    <p><b>Total posts:</b> {{ total_posts }}</p>
+    <p><b>Flagged users:</b> {{ flagged_users|length }}</p>
+    <hr>
+    {% for c in clusters %}
+    <div class="cluster">
+        <h2>Cluster {{ c.id }} {% if c.flagged %}<span class="flag">[SUSPICIOUS]</span>{% endif %}</h2>
+        <b>Summary:</b> {{ c.summary }}<br>
+        <b>Top keywords:</b> {{ c.keywords|join(', ') }}<br>
+        <b>Posts in cluster:</b> {{ c.size }}<br>
+        <b>Top authors:</b> {{ c.top_authors|join(', ') }}<br>
+        <b>Sample posts:</b>
+        <ul>
+            {% for post in c.sample_posts %}
+            <li>{{ post }}</li>
+            {% endfor %}
+        </ul>
+        <img src="{{ c.timeline_plot }}" alt="Timeline plot" width="400">
+    </div>
+    {% endfor %}
+    <hr>
+    <h2>Flagged Users (potential coordination):</h2>
+    <ul>
+    {% for user in flagged_users %}
+        <li>{{ user }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
