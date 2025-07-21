@@ -118,6 +118,8 @@ Reports are auto-saved under `reports/yyyy-mm-dd_HHMMSS/`. Each report includes:
 
 To customize the HTML template, modify `templates/report.html` and re-run `python main.py`.
 
+Sample report in [reports/sample_output](C:\Users\johnh\Documents\Programming\Projects\WhisperWatch\reports\sample_output\report.html).
+
 ## Contributing
 
 Contributions welcome! Please open issues or submit pull requests for new detectors, optimization, or bug fixes.
